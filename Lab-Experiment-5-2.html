@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sum Calculator</title>
+
+  <style>
+    
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    input {
+      margin: 5px 0;
+      padding: 5px;
+    }
+
+    button {
+      padding: 5px 10px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h3>Enter two numbers:</h3>
+
+  
+  <form onsubmit="calculateSum(); return false;">
+    <input type="number" id="num1" placeholder="First number">
+    <br>
+    <input type="number" id="num2" placeholder="Second number">
+    <br>
+    <button type="submit">Calculate</button>
+  </form>
+
+  
+  <p id="result"></p>
+
+  
+  <script>
+    
+    function twoSum(a, b) {
+      return a + b;
+    }
+
+    
+    function calculateSum() {
+      
+      let num1 = parseFloat(document.getElementById("num1").value);
+      let num2 = parseFloat(document.getElementById("num2").value);
+
+      
+      let sum = twoSum(num1, num2);
+
+      
+      document.getElementById("result").innerHTML = "<b>Sum = " + sum + "</b>";
+
+      
+      alert("Calculation done!");
+    }
+  </script>
+
+</body>
+</html>
