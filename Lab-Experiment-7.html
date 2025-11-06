@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Meal List</title>
+</head>
+<body>
+  <h1>Meal List</h1>
+  <div id="meals"></div>
+  <button onclick="addMeal()">Add Meal</button>
+  <button onclick="suggestMeal()">Suggest a Meal</button>
+
+  <script>
+    var meals = [
+      {name:"Pizza", image:"https://littlecaesarsksa.com/wp-content/uploads/2018/07/Pizza_Margarheta_1.png", calories:300, vegetarian:false},
+      {name:"Salad", image:"https://www.subway.com.my/images/menu/salad/Salad%20BBQ%20Chicken.png", calories:150, vegetarian:true},
+      {name:"Burger", image:"https://garbageplatereviews.com/wp-content/uploads/2022/07/2021_Photo_UK_GrilledChickenSandwich_1.png", calories:500, vegetarian:false},
+      {name:"Pasta", image:"https://publish.purewow.net/wp-content/uploads/sites/2/2016/04/ny-pasta-list1.jpg?fit=618%2C445", calories:400, vegetarian:true}
+    ]
+
+    function showMeals() {
+      var div = document.getElementById("meals")
+      div.innerHTML = ""
+      for(var i=0; i<meals.length; i++){
+        div.innerHTML += "<p><b>"+meals[i].name+"</b><br><img src='"+meals[i].image+"'><br>Calories: "+meals[i].calories+"<br>Vegetarian: "+meals[i].vegetarian+"</p>"
+      }
+    }
+
+    function addMeal() {
+      var name = prompt("Enter meal name:")
+      var image = prompt("Enter image URL:")
+      var calories = prompt("Enter calories:")
+      var vegetarian = prompt("Is it vegetarian? (true/false):")
+      meals.push({name:name, image:image, calories:calories, vegetarian:vegetarian})
+      showMeals()
+    }
+
+    function suggestMeal() {
+      var random = Math.floor(Math.random() * meals.length)
+      alert("Suggested meal: " + meals[random].name)
+    }
+
+    showMeals()
+  </script>
+</body>
+</html>
